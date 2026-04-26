@@ -63,7 +63,7 @@ namespace OpenKNX.IoT
 
             CoapConfig config = new CoapConfig();
             config.TokenLength = 8;
-            _coapServer = new CoapServer(config);
+            _coapServer = new CoapServer(config, [49124]);
 
             _context = new ResourceContext();
             _context.Database.Migrate();

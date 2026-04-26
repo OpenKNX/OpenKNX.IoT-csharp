@@ -5,14 +5,28 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	  <DockerfilePath>..\Dockerfile-Demo</DockerfilePath>
+	  <DockerfileRunArguments>-v $(MSBuildProjectDirectory)/localconfig:/config</DockerfileRunArguments>
+	  <DockerfileRunEnvironmentFiles>$(MSBuildProjectDirectory)/demo.env</DockerfileRunEnvironmentFiles>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.23.0" />
+    <PackageReference Include="PeterO.Cbor" Version="4.5.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OpenKNX.IoT\OpenKNX.IoT.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="localconfig\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="device.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,17 @@
+services:
+  device-1:
+    image: ghcr.io/openknx/openknx.iot.demo:iotdevice
+    container_name: device-1
+    volumes:
+      - ./localconfig:/config
+    environment:
+      - Serialnumber=00fa10020701
+      - Password=2X4W3TE0DFLLS19Y1FSG
+      - KeyId=0c00fa10020701
+      - KeyIdContext=0d
+      - MasterSecret=3194BB0BCC341407F06F2A4A837EB4E2
+      - HardwareType=000102030405
+      - HardwareVersion=010203
+      - FirmwareVersion=020304
+      - Model=IoT-Demo
+    network_mode: host

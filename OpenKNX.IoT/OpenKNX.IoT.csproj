@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.5" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.5" />
     <PackageReference Include="NAPS2.Mdns" Version="1.0.1" />
+    <PackageReference Include="PeterO.Cbor" Version="4.5.5" />
     <PackageReference Include="System.Formats.Cbor" Version="10.0.5" />
   </ItemGroup>
 

@@ -6,17 +6,13 @@ USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 
-
 # Diese Stufe wird zum Erstellen des Dienstprojekts verwendet.
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["OpenKNX.IoT.Demo/OpenKNX.IoT.Demo.csproj", "OpenKNX.IoT.Demo/"]
 COPY ["OpenKNX.IoT/OpenKNX.IoT.csproj", "OpenKNX.IoT/"]
-COPY ["OpenKNX.CoAP/OpenKNX.CoAP/OpenKNX.CoAP.csproj", "OpenKNX.CoAP/OpenKNX.CoAP/"]
-RUN ls
-RUN ls OpenKNX.CoAP/
-RUN ls OpenKNX.CoAP/OpenKNX.CoAP/
+COPY ["CoAP-CSharp/CoAP.NET/CoAP.Std10.csproj", "CoAP-CSharp/CoAP.NET/"]
 RUN dotnet restore "./OpenKNX.IoT.Demo/OpenKNX.IoT.Demo.csproj"
 COPY . .
 WORKDIR "/src/OpenKNX.IoT.Demo"

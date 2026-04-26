@@ -35,7 +35,7 @@ namespace OpenKNX.IoT.Models
 
             Serialnumber = config.Serialnumber;
             Password = config.Password;
-            ManufacturerId = config.ManufacturerId;
+            ManufacturerId = int.Parse(Serialnumber.Substring(0, 4), System.Globalization.NumberStyles.HexNumber);
             HardwareType = config.HardwareType;
             HardwareVersion = config.HardwareVersion;
             FirmwareVersion = config.FirmwareVersion;
